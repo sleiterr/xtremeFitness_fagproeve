@@ -4,61 +4,29 @@
 @import "tailwindcss/utilities";
 
 @theme {
-  --color-body: rgba(17, 24, 39, 1);
-  --color-footer: rgba(17, 24, 39, 1);
+  --color-body: #fff;
+  --color-footer: #000;
 
   --color-primary: #fff;
   --color-secondary: #fff;
-  --color-stat-title: #1f2937;
-  --color-stat: #4b5563;
-  --color-nav: #333;
 
-  --color-header-overlay: rgba(217, 217, 217, 0.4);
-  --color-border: #fff;
-  /* #3e3e3e */
+  --color-dark-primary: #000000;
+  --color-dark-secondary: #000000;
+  --color-text-slogan: #E54E41;
 
-  --color-hero-overlay: rgba(1, 0, 0, 0.4);
-  --color-hero-badge: rgba(217, 217, 217, 0.40);
+  --color-price-badge: rgba(229, 78, 65, 1);
+
+  /* employees-section */
+  --color-employees-section: rgba(229, 78, 65, 1);
+  --color-social-icon-circle: #fff;
+  --color-employees-icon: #fff;
 
   /* footer-color */
   --color-primary-footer: #fff;
-  --color-footer: rgba(17, 24, 39, 1);
-  --color-rating-bg: rgba(31, 41, 55, 1);
-  --color-secondary-footer: rgba(156, 163, 175, 1);
-  --color-footer-icon: rgba(156, 163, 175, 1);
-  --color-rating-star: rgba(250, 204, 21, 1);
-  --color-rating-box: rgba(31, 41, 55, 1);
-
-  --color-rating-nr: rgba(44, 82, 130, 1);
-  --color-rating-text: rgba(140, 162, 192, 1);
-
-  --color-badge-kultur: rgba(219, 39, 119, 1);
-  --color-badge-mad: rgba(234, 88, 12, 1);
-  --color-badge-new: rgba(220, 38, 38, 1);
-  --color-badge-natur: rgba(22, 163, 74, 1);
-  --color-badge-eventyr: rgba(202, 138, 4, 1);
-
-  --color-box-about: rgba(31, 41, 55, 1);
-  --color-badge-about: rgba(234, 88, 12, 1);
-  --color-span-about: oklch(79.5% 0.210 160.711);
-
-  --color-location-overlay: rgba(255, 255, 255, 0.18);
-  --color-card-overlay: rgba(13, 13, 13, 0.6);
-  --color-post-overlay: rgba(1, 0, 0, 0.6);
-
-  --color-hero-btn: rgba(37, 99, 235, 1);
-  --color-hero-btn-hover: rgba(29, 78, 216, 1);
-
-  --color-about-btn: rgba(234, 88, 12, 1);
-  --color-about-btn-hover: rgba(210, 70, 10, 1);
-
-  --color-filter-btn-hover: rgba(22, 163, 74, 1);
-  --color-link-hover: rgba(0, 214, 139, 1);
-  --color-filter-btn: rgba(51, 51, 51, 1);
-  --color-filter-btn-icon: rgba(51, 51, 51, 1);
-
-  --color-review: #333;
-  --color-icon-review: #333;
+  --color-secondary-footer: #ABABAB;
+  --color-social-footer: #fff;
+  --color-footer-copy: #ABABAB;
+  --color-social-footer-circle: rgba(119, 119, 119, 0.45);
 
   --font-teko: "Teko", sans-serif;
   --font-ubuntu: "Ubuntu", sans-serif;
@@ -79,5 +47,4 @@ body {
   color: var(--color-primary);
   list-style: none;
   overflow-x: hidden;
-
 }

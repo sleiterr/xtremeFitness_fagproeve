@@ -16,7 +16,7 @@ const servicesText = [
 
 const Services = () => {
   return (
-    <Section className="py-0!">
+    <Section className="py-0! mb-32">
       <div
         className="py-14 md:py-32"
         style={{ background: "var(--gradient-price-badge)" }}

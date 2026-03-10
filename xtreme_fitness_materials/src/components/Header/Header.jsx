@@ -113,7 +113,7 @@ const Header = ({ token, onLogout }) => {
             />
           </nav>
         </div>
-        <div className="fixed z-1000 right-6 top-6 md:top-12 md:right-12 bg-menu-bg backdrop-blur-sm">
+        <div className="fixed z-1000 right-6 top-6 md:top-12 md:right-12 backdrop-blur-sm">
           <BurgerMenu
             scrolled={scrolled}
             isOpen={menuOpen}

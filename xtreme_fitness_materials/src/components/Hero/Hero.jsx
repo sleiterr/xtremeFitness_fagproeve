@@ -35,6 +35,7 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center">
           <HeroItem />
           <Button to="#">
+            Tilmeld dig nu
             <CtaLabel />
           </Button>
         </div>

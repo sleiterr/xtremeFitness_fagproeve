@@ -33,7 +33,7 @@ const About = () => {
       <div
         className={clsx(
           "w-full md:w-1/2 md:ml-auto px-0 md:px-6 py-10 md:py-32 md:max-w-7xl min-h-full",
-          "flex flex-col text-center justify-center items-center md:items-center md:justify-center",
+          "flex flex-col text-center justify-center items-center md:items-center md:justify-center z-10",
         )}
       >
         <AboutItem />

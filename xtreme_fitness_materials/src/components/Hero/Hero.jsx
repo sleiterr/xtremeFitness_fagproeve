@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <HeroItem />
-          <Button to="#">
+          <Button to="#" className="mt-12 md:mt-14">
             Tilmeld dig nu
             <CtaLabel />
           </Button>

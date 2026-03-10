@@ -10,7 +10,7 @@ const PrimaryButton = ({ children, to, className, ...rest }) => {
         {...rest}
         className={clsx(
           "flex items-center justify-center gap-4 md:gap-6",
-          "border-2 border-btn-border bg-transparent py-4 px-10 rounded w-full text-center cursor-pointer mt-12 md:mt-14",
+          "border-2 border-btn-border bg-transparent py-4 px-10 rounded w-full text-center cursor-pointer",
           "font-zen font-medium text-secondary text-base md:text-2xl",
           "rounded-[6.25rem]",
           "transition duration-300 ease-in-out",

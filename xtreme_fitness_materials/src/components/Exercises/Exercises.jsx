@@ -23,6 +23,7 @@ const Exercises = () => {
 
   if (error)
     return <p className="font-normal text-2xl text-red-500">{error}</p>;
+  
   return (
     <Section>
       <ExercisesItem />

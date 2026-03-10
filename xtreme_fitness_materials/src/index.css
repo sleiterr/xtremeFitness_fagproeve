@@ -8,7 +8,7 @@
   --color-footer: #000;
 
   --color-hero-overlay: rgba(0, 0, 0, 0.30);
-  
+
   --color-primary: #fff;
   --color-secondary: #fff;
 
@@ -16,7 +16,11 @@
   --color-dark-secondary: #000000;
   --color-text-slogan: #E54E41;
 
-  --color-price-badge: rgba(229, 78, 65, 1);
+  --color-btn-badge: rgba(229, 78, 65, 1);
+  --color-btn-border: rgba(235, 235, 235, 0.5);
+
+  /* --color-price-badge-hot: rgba(255, 170, 0, 1); */
+  --gradient-price-badge: linear-gradient(160deg, #e54e41 0%, #ff8a00 60%);
 
   /* employees-section */
   --color-employees-section: rgba(229, 78, 65, 1);

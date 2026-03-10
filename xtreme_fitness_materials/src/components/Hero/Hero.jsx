@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/PrimaryButton";
+import CtaLabel from "../Button/CtaLabel";
 import heroBg from "../../assets/Header/mainHeader.jpg";
 
 // button mt-5
@@ -7,13 +8,14 @@ const heroText = [
   {
     id: 1,
     subject: "xtreme fitness",
-    title: "Bliv stærkr",
+    title: "Bliv stærk",
     desc: "Det bedste fitnesscenter — hvor styrke og sundhed vokser sammen.",
     subjectClass:
-      "font-normal font-teko text-secondary text-2xl tracking-[7.5px] uppercase mb-2",
+      "font-normal font-teko text-secondary text-2xl md:text-4xl tracking-[7.5px] md:tracking-[8.5px] uppercase mb-2 md:mb-4",
     titleClass:
-      "font-bold font-teko text-primary text-3xl tracking-[1.2px] uppercase",
-    descClass: "font-normal text-secondary text-xs text-center max-w-[260px]",
+      "font-bold font-teko text-primary text-3xl md:text-6xl tracking-[1.2px] md:tracking-[1.4px] uppercase",
+    descClass:
+      "font-normal text-secondary text-xs md:text-xl text-center max-w-[260px] md:max-w-[360px]",
   },
 ];
 
@@ -32,7 +34,9 @@ const Hero = () => {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <HeroItem />
-          <Button to="#">Tilmeld dig nu</Button>
+          <Button to="#">
+            <CtaLabel />
+          </Button>
         </div>
       </div>
     </section>

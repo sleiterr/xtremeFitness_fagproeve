@@ -13,5 +13,6 @@ const fetchData = async (endpoint) => {
 };
 
 export const fetchExercises = () => fetchData("exercises");
+export const fetchServices = () => fetchData("services");
 
 export default fetchData;

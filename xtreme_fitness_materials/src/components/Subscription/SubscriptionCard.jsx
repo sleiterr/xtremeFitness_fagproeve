@@ -1,4 +1,6 @@
 import React from "react";
+import gym from "../../assets/icons/tilmeld_gym.svg";
+import CradBtn from "../Button/CradBtn";
 import clsx from "clsx";
 import { useSubscriptions } from "./useSubscription";
 import { IoMdCheckmark } from "react-icons/io";
@@ -67,6 +69,19 @@ const SubscriptionCard = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="mt-8">
+              <CradBtn>
+                Tilmeld dig nu{" "}
+                <img
+                  src={gym}
+                  alt="Gym icon"
+                  className={clsx(
+                    "flex items-center",
+                    "w-10 h-6 bg-white rounded-[2rem] p-1 shadow-md",
+                  )}
+                />
+              </CradBtn>
             </div>
           </div>
         ))}

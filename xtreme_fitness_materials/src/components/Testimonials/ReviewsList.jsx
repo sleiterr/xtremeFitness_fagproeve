@@ -32,8 +32,8 @@ const ReviewsList = () => {
       <ul
         className={`grid gap-8 mt-10 md:mt-12 grid-cols-${itemsPerPage} min-h-50 md:min-h-65 transition-all duration-500`}
       >
-        {paginatedReviews.map((item, index) => (
-          <li key={index} className="font-normal text-center relative">
+        {paginatedReviews.map((item) => (
+          <li key={item._id} className="font-normal text-center relative">
             <div className="">
               <img
                 src={apostrophy}

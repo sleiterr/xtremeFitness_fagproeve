@@ -18,10 +18,10 @@ const ListServices = () => {
   return (
     <>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 -mt-8 md:-mt-16">
-        {services.map((item, index) => {
+        {services.map((item) => {
           return (
             <li
-              key={index}
+              key={item._id}
               className="relative overflow-hidden text-center mx-auto w-full max-w-[320px] md:max-w-90"
             >
               <img

@@ -32,6 +32,11 @@ const Testimonials = () => {
       >
         <ReviewsItem />
         <ReviewsList />
+        <img
+          src={riviewsUsMobile}
+          alt="about us mobile"
+          className="block md:hidden w-75.25 h-auto object-cover mt-14"
+        />
       </div>
     </section>
   );
@@ -45,13 +50,8 @@ const ReviewsItem = () => {
       {reviewsText.map((item) => (
         <div
           key={item.id}
-          className="flex flex-col items-center justify-center mx-auto"
+          className="flex flex-col-reverse items-center justify-center mx-auto"
         >
-          <img
-            src={item.imageMobile}
-            alt="about us mobile"
-            className="block md:hidden w-75.25 h-auto object-cover mb-10"
-          />
           <div className="">
             <h4 className={item.subjectClass}>{item.subject}</h4>
             <h2 className={item.titleClass}>{item.title}</h2>

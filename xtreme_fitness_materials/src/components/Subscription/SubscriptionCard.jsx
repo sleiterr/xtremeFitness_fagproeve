@@ -6,8 +6,10 @@ import { useSubscriptions } from "./useSubscription";
 import { IoMdCheckmark } from "react-icons/io";
 
 const SubscriptionCard = () => {
+  // Fetch subscriptions using the custom hook
   const { subscriptions, loading, error } = useSubscriptions();
 
+  // Remove duplicate subscriptions based on title
   const uniqueSubscriptions = subscriptions
     ? subscriptions.filter(
         (item, index, arr) =>
@@ -42,10 +44,11 @@ const SubscriptionCard = () => {
               <span
                 className={clsx(
                   "flex flex-col items-center justify-center",
-                  "w-[120px] h-[120px] rounded-full bg-btn-badge",
+                  "w-[120px] h-[120px] rounded-full",
                   "font-teko font-semibold text-primary text-3xl md:text-3xl",
                   "absolute -bottom-6 md:-bottom-16 left-1/2 -translate-x-1/2",
                 )}
+                style={{ background: "var(--gradient-price-badge)" }}
               >
                 {item.price} DKK
                 <span className="font-ubuntu font-light text-xl">Mdr</span>

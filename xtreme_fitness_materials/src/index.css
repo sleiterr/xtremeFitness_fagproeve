@@ -16,10 +16,14 @@
   --color-dark-primary: #000000;
   --color-dark-secondary: #000000;
   --color-dark-slider: #777;
+  --color-input-custom: #777;
   --color-text-slogan: #E54E41;
+  --color-form-border: #E54E41;
 
   --color-btn-badge: rgba(229, 78, 65, 1);
   --color-btn-border: rgba(235, 235, 235, 0.5);
+  --color-button-bg: #fff;
+  --color-button-hover-bg: #E23E3C;
 
   /* --color-price-badge-hot: rgba(255, 170, 0, 1); */
   --gradient-price-badge: linear-gradient(180deg, #E23E3C 0%, #E8694B 100%);

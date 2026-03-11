@@ -6,6 +6,7 @@ import Services from "../../components/Services/Services";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Subscription from "../../components/Subscription/Subscription";
 import Employers from "../../components/Employers/Employers";
+import ContactSection from "../../components/Contact/ContactSection";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Testimonials />
       <Subscription />
       <Employers />
+      <ContactSection />
     </>
   );
 };

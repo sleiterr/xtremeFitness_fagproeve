@@ -25,8 +25,7 @@ const aboutText = [
 const About = () => {
   return (
     <section
-      className="relative w-full min-w-[320px] md:h-screen min-h-screen lg:h-auto 
-  bg-no-repeat bg-right md:bg-center bg-length:[200%_100%] md:bg-cover md:aspect-8/5"
+      className="relative w-full min-w-[320px] md:h-screen min-h-screen lg:h-auto bg-no-repeat bg-right md:bg-center bg-length:[200%_100%] md:bg-cover md:aspect-8/5"
       id="about"
       style={{ backgroundImage: `url(${aboutUs})` }}
     >

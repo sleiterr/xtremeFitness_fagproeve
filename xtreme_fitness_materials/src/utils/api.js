@@ -16,5 +16,6 @@ export const fetchExercises = () => fetchData("exercises");
 export const fetchServices = () => fetchData("services");
 export const fetchReviews = () => fetchData("reviews");
 export const fetchSubscriptions = () => fetchData("subscriptions");
+export const fetchEmployers = () => fetchData("employees");
 
 export default fetchData;

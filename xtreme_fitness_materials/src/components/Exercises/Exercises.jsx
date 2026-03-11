@@ -23,7 +23,7 @@ const Exercises = () => {
 
   if (error)
     return <p className="font-normal text-2xl text-red-500">{error}</p>;
-  
+
   return (
     <Section>
       <ExercisesItem />
@@ -32,9 +32,9 @@ const Exercises = () => {
           "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 md:mt-16",
         )}
       >
-        {exercises.map((item, index) => (
+        {exercises.map((item) => (
           <li
-            key={index}
+            key={item._id}
             className="font-normal text-lg text-dark-secondary text-center"
           >
             <img

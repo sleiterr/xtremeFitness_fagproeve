@@ -18,7 +18,7 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             )}
             onClick={handleLinkClick}
           >
-            Trænere
+            Tjenester
           </Link>
         </li>
         <li>
@@ -34,7 +34,7 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             )}
             onClick={handleLinkClick}
           >
-            Priser
+            Trænere
           </Link>
         </li>
         <li className="hidden md:block">
@@ -50,7 +50,7 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             )}
             onClick={handleLinkClick}
           >
-            Om os
+            Priser
           </Link>
         </li>
         <li>
@@ -66,27 +66,11 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             )}
             onClick={handleLinkClick}
           >
-            Log ind
+            Om os
           </Link>
         </li>
         {isLoggedIn ? (
           <>
-            <li>
-              <Link
-                to="/my-list"
-                smooth={true.toString()}
-                duration={800}
-                offset={-100}
-                className={clsx(
-                  "relative cursor-pointer ",
-                  "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
-                  "hover:font-bold transition-all duration-300",
-                )}
-                onClick={handleLinkClick}
-              >
-                Min liste
-              </Link>
-            </li>
             <li>
               <button
                 className={clsx(
@@ -105,7 +89,7 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
         ) : (
           <li>
             <Link
-              to="/login-page"
+              to="/auth-landing"
               smooth={true.toString()}
               duration={800}
               offset={-100}

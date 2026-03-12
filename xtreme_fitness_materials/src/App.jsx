@@ -11,6 +11,8 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 
+import AuthLanding from "./components/AuthLanding/AuthLanding";
+
 function App() {
   const location = useLocation();
   const hideHeaderRoutes = ["/contact-confirmation"];
@@ -25,6 +27,7 @@ function App() {
             path="/contact-confirmation"
             element={<ContactConfirmation />}
           />
+          <Route path="/auth-landing" element={<AuthLanding />} />
         </Routes>
       </main>
       {showHeader && <Footer />}
@@ -33,3 +36,5 @@ function App() {
 }
 
 export default App;
+
+//onLogin={handleLogin}

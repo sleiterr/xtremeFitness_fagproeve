@@ -26,7 +26,7 @@ const LogoFooter = ({ scrollTarget = "hero" }) => {
         onClick={handleClick}
         className="w-40 h-full cursor-pointer"
       />
-      <p className="font-light text-sm md:text-base text-secondary-footer mt-3 md:mt-4 w-[220px]">
+      <p className="font-light text-sm md:text-base text-secondary-footer mt-3 md:mt-4 w-[220px] text-center md:text-start">
         Hos os handler træning om glæde, kvalitet og resultater{" "}
       </p>
     </>

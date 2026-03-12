@@ -9,6 +9,7 @@ import {
 import ContactConfirmation from "../src/components/Contact/ContactConfirmation ";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
           />
         </Routes>
       </main>
+      {showHeader && <Footer />}
     </>
   );
 }

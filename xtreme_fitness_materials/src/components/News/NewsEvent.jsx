@@ -7,6 +7,7 @@ import { useBlogs } from "./useNews";
 const NewsEvent = () => {
   const { blogs, loading, error } = useBlogs();
 
+  // Define the target ID for the specific event we want to display
   const targetId = "69aea7781108ea7a04055457";
   const uniqueEvent = blogs.find((item) => item._id === targetId);
 
@@ -19,6 +20,9 @@ const NewsEvent = () => {
 
   if (error)
     return <p className="font-normal text-2xl text-red-500">{error}</p>;
+
+  // return null if the specific event is not found to avoid rendering issues
+  if (!uniqueEvent) return null;
 
   return (
     <>

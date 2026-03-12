@@ -14,7 +14,6 @@ export function useExercises() {
       try {
         setLoading(true);
         const data = await fetchExercises();
-        console.log("Fetched exercises:", data);
         setExercises(data);
       } catch (err) {
         setError(err.message);

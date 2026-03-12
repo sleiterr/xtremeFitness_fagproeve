@@ -34,7 +34,6 @@ export const LoginForm = ({ onLogin }) => {
         });
         // Parse the JSON response from the server
         const data = await res.json();
-        console.log("Server response:", data);
         // Check if the response is ok, the status is "ok", and the token is valid
         const token = data?.data?.token;
         const isTokenValid = typeof token === "string" && token.length > 0;

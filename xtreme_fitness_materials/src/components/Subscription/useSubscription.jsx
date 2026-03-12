@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {fetchSubscriptions} from "../../utils/api";
- 
+import { fetchSubscriptions } from "../../utils/api";
+
 // Custom hook to fetch subscriptions data
 export function useSubscriptions() {
   // State to hold subscriptions data, loading status, and error message
@@ -14,7 +14,6 @@ export function useSubscriptions() {
       try {
         setLoading(true);
         const data = await fetchSubscriptions();
-        console.log("Fetched subscriptions:", data);
         setSubscriptions(data);
       } catch (err) {
         setError(err.message);

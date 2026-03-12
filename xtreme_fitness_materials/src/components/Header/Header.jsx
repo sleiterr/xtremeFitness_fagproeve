@@ -49,14 +49,7 @@ const Header = ({ token, onLogout }) => {
   }, [menuOpen]);
 
   // Log current location and isHome state
-  useEffect(() => {
-    console.log("location:", location.pathname, "isHome:", isHome);
-  }, [location.pathname, isHome]);
-
-  // Log scrolled state changes
-  useEffect(() => {
-    console.log("scrolled changed ->", scrolled);
-  }, [scrolled]);
+  useEffect(() => {}, [location.pathname, isHome]);
 
   return (
     <>

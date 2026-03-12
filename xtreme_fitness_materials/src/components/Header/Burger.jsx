@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Burger = ({ isOpen, toggleMenu, scrolled }) => {
-  //   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <StyledWrapper $isOpen={isOpen} $scrolled={scrolled}>
@@ -40,7 +39,7 @@ const StyledWrapper = styled.div`
     display: block;
     height: 3px;
     width: 100%;
-    background: white; /* завжди білий */
+    background: #AEBFD2;
     border-radius: 9px;
     opacity: 1;
     left: 0;

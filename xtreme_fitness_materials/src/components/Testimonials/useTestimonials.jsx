@@ -14,7 +14,6 @@ export function useReviews() {
       try {
         setLoading(true);
         const data = await fetchReviews();
-        console.log("Fetched reviews:", data);
         setReviews(data);
       } catch (err) {
         setError(err.message);

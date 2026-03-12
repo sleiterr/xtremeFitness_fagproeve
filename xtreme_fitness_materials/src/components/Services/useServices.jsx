@@ -14,7 +14,6 @@ export function useServices() {
       try {
         setLoading(true);
         const data = await fetchServices();
-        console.log("Fetched services:", data);
         setServices(data);
       } catch (err) {
         setError(err.message);

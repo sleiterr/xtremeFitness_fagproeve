@@ -14,7 +14,6 @@ export function useEmployers() {
       try {
         setLoading(true);
         const data = await fetchEmployers();
-        console.log("Fetched employers:", data);
         setEmployers(data);
       } catch (err) {
         setError(err.message);

@@ -7,6 +7,7 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Subscription from "../../components/Subscription/Subscription";
 import Employers from "../../components/Employers/Employers";
 import ContactSection from "../../components/Contact/ContactSection";
+import News from "../../components/News/News";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Subscription />
       <Employers />
       <ContactSection />
+      <News />
     </>
   );
 };

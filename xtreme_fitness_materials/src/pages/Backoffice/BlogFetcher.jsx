@@ -14,7 +14,6 @@ export function useBlogs() {
       try {
         setLoading(true);
         const data = await fetchBlogs();
-        console.log("Fetched blogs:", data);
         setBlogs(data);
       } catch (err) {
         setError(err.message);

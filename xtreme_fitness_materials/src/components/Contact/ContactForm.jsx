@@ -30,7 +30,7 @@ const ContactForm = () => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(API_URL, values);
+
     try {
       const res = await fetch(`${API_URL}/message`, {
         method: "POST",

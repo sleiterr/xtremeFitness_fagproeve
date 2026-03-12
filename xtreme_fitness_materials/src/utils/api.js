@@ -21,9 +21,31 @@ export const fetchBlogs = () => fetchData("blogs");
 
 export default fetchData;
 
+// Function to delete a blog by ID
 export const deleteBlog = async (blogId) => {
   const response = await fetch(`${API_URL}/blog/${blogId}`, {
     method: "DELETE",
+  });
+  return await response.json();
+};
+
+// Function to update a blog with new data
+export const updateBlog = async (blogData) => {
+  const response = await fetch(`${API_URL}/blog`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(blogData),
+  });
+  return await response.json();
+};
+
+
+// Function to create a new blog
+export const createBlog = async (blogData) => {
+  const response = await fetch(`${API_URL}/blog`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(blogData),
   });
   return await response.json();
 };

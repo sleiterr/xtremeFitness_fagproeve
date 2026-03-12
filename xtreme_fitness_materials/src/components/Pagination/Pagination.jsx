@@ -24,7 +24,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex items-center justify-center gap-4 mt-6">
+    <div className="flex items-center justify-center gap-6 mt-8">
       <button
         className={` ${buttonClass}`}
         onClick={prev}

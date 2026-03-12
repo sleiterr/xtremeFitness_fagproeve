@@ -1,10 +1,12 @@
 import React from "react";
 import LoginHero from "./LoginHero";
+import LoginPage from "./LoginPage";
 
-const AuthLanding = () => {
+const AuthLanding = ({ onLogin }) => {
   return (
     <>
       <LoginHero />
+      <LoginPage onLogin={onLogin} />
     </>
   );
 };

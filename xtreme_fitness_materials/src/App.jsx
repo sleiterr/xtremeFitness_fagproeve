@@ -25,7 +25,7 @@ function App() {
   // location is used to determine if the header should be shown on certain routes
   const location = useLocation();
   const navigate = useNavigate();
-  const hideHeaderRoutes = ["/contact-confirmation"];
+  const hideHeaderRoutes = ["/contact-confirmation", "/backoffice"];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
   const handleLogin = (newToken) => {

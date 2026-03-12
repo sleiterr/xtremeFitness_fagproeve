@@ -27,7 +27,7 @@ const NewsItem = () => {
   return (
     <>
       {pageText.map((item) => (
-        <div key={item.id} className="text-center">
+        <div key={item.id} className="text-center mb-6 md:mb-12">
           <div className="flex flex-col items-center justify-center">
             <h4 className={item.subjectClass}>{item.subject}</h4>
             <h2 className={item.titleClass}>{item.title}</h2>

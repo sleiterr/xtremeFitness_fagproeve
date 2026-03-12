@@ -12,7 +12,7 @@ const InputField = ({ label, name, ...rest }) => {
         className={clsx(
           "font-normal text-base text-input-custom px-3 h-12 md:px-4 md:h-12",
           "bg-white rounded-3xl border border-white",
-          "shadow focus:outline-none transition-shadow duration-300 focus:ring-2 focus:ring-form-border resize-none",
+          "shadow focus:outline-none transition-shadow duration-300 focus:ring-2 focus:ring-focus-border resize-none",
         )}
       />
       <div className="min-h-8 mt-2 md:min-h-8">

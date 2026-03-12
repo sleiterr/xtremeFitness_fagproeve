@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Input from "./Input";
+import CtaLabel from "../Button/CtaLabel";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -11,7 +12,9 @@ import clsx from "clsx";
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const LoginForm = ({ onLogin }) => {
+  // useNavigate is a hook from react-router-dom that allows us to navigate programmatically
   const navigate = useNavigate();
+  // useFormik is a hook from Formik that helps with form state management and validation
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
@@ -20,17 +23,19 @@ export const LoginForm = ({ onLogin }) => {
       password: Yup.string().required("Password is required"),
     }),
 
+    // onSubmit is called when the form is submitted and valids
     onSubmit: async (values) => {
       try {
+        // Make a POST request to the login endpoint with the form values
         const res = await fetch(`${API_URL}/auth/signin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),
         });
-
+        // Parse the JSON response from the server
         const data = await res.json();
         console.log("Server response:", data);
-
+        // Check if the response is ok, the status is "ok", and the token is valid
         const token = data?.data?.token;
         const isTokenValid = typeof token === "string" && token.length > 0;
 
@@ -41,8 +46,7 @@ export const LoginForm = ({ onLogin }) => {
           const user = jwtDecode(token);
 
           if (user.role === "admin") navigate("/backoffice");
-          else if (user.role === "guest") navigate("/my-list");
-          else navigate("/profile");
+          else if (user.role === "guest") navigate("#");
         } else {
           toast.error(data?.message || "invalid login");
         }
@@ -55,7 +59,7 @@ export const LoginForm = ({ onLogin }) => {
 
   return (
     <>
-      <div className="">
+      <div className="flex flex-col items-center justify-center w-full h-full">
         <form onSubmit={formik.handleSubmit} className="flex flex-col w-80">
           <Input
             type="email"
@@ -76,7 +80,9 @@ export const LoginForm = ({ onLogin }) => {
             error={formik.touched.password && formik.errors.password}
           />
 
-          <LoginButton type="submit">Login</LoginButton>
+          <LoginButton type="submit">
+            Login <CtaLabel />
+          </LoginButton>
         </form>
       </div>
     </>
@@ -92,11 +98,12 @@ const LoginButton = ({ children, className, ...rest }) => {
         type="submit"
         {...rest}
         className={clsx(
-          "bg-button-bg py-4 px-8 md:py-2 md:px-12 rounded cursor-pointer",
-          "font-zen font-normal text-secondary text-4xl",
-          "rounded-br-[3.125rem] rounded-tl-[3.125rem]",
+          "flex items-center justify-between mx-auto w-full",
+          "border-2 border-form-btn bg-transparent py-3 md:py-2 px-12 md:px-8 rounded text-center cursor-pointer",
+          "font-normal text-input-custom text-xl md:text-2xl",
+          "rounded-[6.25rem]",
           "transition duration-300 ease-in-out",
-          "hover:bg-button-hover-bg",
+          "hover:bg-slate-950/40 hover:border-link hover:text-white",
           className,
         )}
       >

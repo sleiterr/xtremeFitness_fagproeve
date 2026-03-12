@@ -5,12 +5,13 @@ const messageSchema = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String },
-    phone: { type: Number },
+    // Changed from Number to String to support phone numbers with +, spaces, and different formats from frontend forms
+    phone: { type: String },
     subject: { type: String },
     message: { type: String, required: true },
     status: { type: Boolean, default: false },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.models.message ||

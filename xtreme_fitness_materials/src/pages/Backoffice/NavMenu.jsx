@@ -22,7 +22,7 @@ const ProjectNav = ({ token, onLogout }) => {
   return (
     <>
       <nav className="px-8 py-6">
-        <ul className="flex items-center justify-end gap-4 md:gap-8">
+        <ul className="flex items-center justify-start gap-4 md:gap-8">
           <li className="relative">
             <Link
               className={clsx(

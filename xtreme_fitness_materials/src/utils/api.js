@@ -20,3 +20,10 @@ export const fetchEmployers = () => fetchData("employees");
 export const fetchBlogs = () => fetchData("blogs");
 
 export default fetchData;
+
+export const deleteBlog = async (blogId) => {
+  const response = await fetch(`${API_URL}/blog/${blogId}`, {
+    method: "DELETE",
+  });
+  return await response.json();
+};

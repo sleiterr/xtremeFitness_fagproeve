@@ -35,7 +35,7 @@
     Moderne fitnessklub hjemmeside med blog, trænere, tjenester, abonnementer og admin backoffice.<br />
     <strong>React + Vite + Tailwind + Node.js API</strong>
     <br />
-    <a href="#about-the-project"><strong>Læs dokumentation »</strong></a>
+    <a href="https://github.com/sleiterr/xtremeFitness_fagproeve/tree/main/xtreme_fitness_materials/docs"><strong>Læs dokumentation »</strong></a>
     <br />
     <br />
     <a href="#usage">Se Demo</a>

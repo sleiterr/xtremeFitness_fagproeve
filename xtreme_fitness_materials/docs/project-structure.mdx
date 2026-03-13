@@ -6,31 +6,29 @@ description: Overblik over mapper og roller
 ## Struktur
 
 ```
-src/
-  components/
-  pages/
-  utils/
-  assets/
-public/
-  data/
-  ImagePost/
-docs/
+xtreme_fitness_materials/
+  src/
+    components/
+    pages/
+    utils/
+    assets/
+  public/
+  docs/
 ```
 
 ## Mapper og ansvar
 
-- `src/components/` — delte UI-komponenter som header, hero, cards og footer.
-- `src/pages/` — sider til routing, fx forside og indlaegsdetaljer.
-- `src/utils/` — datahelpers, statistik og lagring af anmeldelser.
-- `src/assets/` — ikoner, logo og grafiske elementer.
-- `public/data/` — JSON-data til demoindhold.
-- `public/ImagePost/` — billeder til indlaeg.
-- `docs/` — docs.page dokumentation.
+- `src/components/` — UI-komponenter: About, Contact, Exercises, Services, Testimonials osv.
+- `src/pages/` — Sider til routing: Home, Backoffice (admin-dashboard).
+- `src/utils/` — API-kald, datahelpers.
+- `src/assets/` — Ikoner, logo, billeder.
+- `public/` — Statisk indhold.
+- `docs/` — Dokumentation til docs.page.
 
 ## Vigtige filer
 
-- `src/main.jsx` — app bootstrap.
 - `src/App.jsx` — hovedlayout og routing.
-- `src/index.css` — globale styles.
-- `vite.config.js` — Vite build.
-- `tailwind.config.js` — Tailwind tema.
+- `src/utils/api.js` — API-funktioner.
+- `src/components/Contact/ContactForm.jsx` — kontaktformular.
+- `src/pages/Backoffice/Backoffice.jsx` — adminpanel.
+- `lib/db/models/message.model.mjs` — beskedmodel (backend).

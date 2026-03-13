@@ -12,6 +12,7 @@ import ContactConfirmation from "../src/components/Contact/ContactConfirmation "
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import AuthLanding from "./components/AuthLanding/AuthLanding";
+
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Footer from "./components/Footer/Footer";
 import Backoffice from "./pages/Backoffice/Backoffice";
@@ -42,7 +43,7 @@ function App() {
 
   return (
     <>
-      {showHeader && <Header />}
+      {showHeader && <Header token={token} onLogout={handleLogout} />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

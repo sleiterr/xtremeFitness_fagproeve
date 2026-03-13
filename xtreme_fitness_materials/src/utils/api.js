@@ -12,6 +12,7 @@ const fetchData = async (endpoint) => {
   }
 };
 
+// Specific fetch functions for each data type
 export const fetchExercises = () => fetchData("exercises");
 export const fetchServices = () => fetchData("services");
 export const fetchReviews = () => fetchData("reviews");

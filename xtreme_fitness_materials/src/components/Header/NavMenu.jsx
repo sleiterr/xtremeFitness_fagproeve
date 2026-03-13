@@ -7,8 +7,8 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
     <div>
       <ul className="flex flex-col items-end gap-6">
         <li>
-          <Link
-            to="/"
+          <a
+            href="#exercises"
             smooth={true.toString()}
             duration={800}
             className={clsx(
@@ -19,43 +19,11 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             onClick={handleLinkClick}
           >
             Tjenester
-          </Link>
+          </a>
         </li>
         <li>
-          <Link
-            to="/stay"
-            smooth={true.toString()}
-            duration={800}
-            offset={-100}
-            className={clsx(
-              "relative cursor-pointer",
-              "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
-              "hover:font-bold transition-all duration-300",
-            )}
-            onClick={handleLinkClick}
-          >
-            Trænere
-          </Link>
-        </li>
-        <li className="hidden md:block">
-          <Link
-            to="/contact-form"
-            smooth={true.toString()}
-            duration={800}
-            offset={-100}
-            className={clsx(
-              "relative cursor-pointer",
-              "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
-              "hover:font-bold transition-all duration-300",
-            )}
-            onClick={handleLinkClick}
-          >
-            Priser
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/activities"
+          <a
+            href="#about"
             smooth={true.toString()}
             duration={800}
             offset={-100}
@@ -67,23 +35,59 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             onClick={handleLinkClick}
           >
             Om os
-          </Link>
+          </a>
+        </li>
+        <li className="hidden md:block">
+          <a
+            href="#price"
+            smooth={true.toString()}
+            duration={800}
+            offset={-100}
+            className={clsx(
+              "relative cursor-pointer",
+              "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
+              "hover:font-bold transition-all duration-300",
+            )}
+            onClick={handleLinkClick}
+          >
+            Priser
+          </a>
+        </li>
+        <li>
+          <a
+            href="#employers"
+            smooth={true.toString()}
+            duration={800}
+            offset={-100}
+            className={clsx(
+              "relative cursor-pointer",
+              "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
+              "hover:font-bold transition-all duration-300",
+            )}
+            onClick={handleLinkClick}
+          >
+            Trænere
+          </a>
         </li>
         {isLoggedIn ? (
           <>
             <li>
-              <button
+              <Link
+                to="/backoffice"
+                smooth={true.toString()}
+                duration={800}
+                offset={-100}
                 className={clsx(
                   "relative cursor-pointer ",
                   "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
                   "hover:font-bold transition-all duration-300",
                 )}
                 onClick={() => {
-                  onLogout();
+                  handleLinkClick;
                 }}
               >
-                Log ud
-              </button>
+                Dashboard
+              </Link>
             </li>
           </>
         ) : (

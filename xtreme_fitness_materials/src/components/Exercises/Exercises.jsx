@@ -16,7 +16,7 @@ const exercisesText = [
 
 const Exercises = () => {
   return (
-    <Section>
+    <Section id="exercises">
       <ExercisesItem />
       <ExercisesList />
     </Section>

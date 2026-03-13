@@ -21,6 +21,14 @@ export const fetchBlogs = () => fetchData("blogs");
 
 export default fetchData;
 
+// Henter et specifikt blog baseret på ID
+export const fetchBlogById = async (blogId) => {
+  if (!blogId) return null;
+  const response = await fetch(`${API_URL}/blog/${blogId}`);
+  const data = await response.json();
+  return data.data || null;
+};
+
 // Function to delete a blog by ID
 export const deleteBlog = async (blogId) => {
   const response = await fetch(`${API_URL}/blog/${blogId}`, {
@@ -38,7 +46,6 @@ export const updateBlog = async (blogData) => {
   });
   return await response.json();
 };
-
 
 // Function to create a new blog
 export const createBlog = async (blogData) => {

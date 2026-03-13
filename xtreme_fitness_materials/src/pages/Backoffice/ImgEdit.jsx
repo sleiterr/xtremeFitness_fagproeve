@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 
-const ImgUploader = ({ label, id, onChange, src }) => {
+const ImgEdit = ({ label, id, onChange, src }) => {
   const [preview, setPreview] = useState(null);
-
-  // Clear preview when src or image is cleared
-  React.useEffect(() => {
-    if (!src) setPreview(null);
-  }, [src]);
-
-  // Also clear preview when file input is reset (image becomes null)
-  React.useEffect(() => {
-    if (src === null) setPreview(null);
-  }, [src]);
 
   const handleChange = (e) => {
     const file = e.target.files[0];
@@ -20,18 +10,16 @@ const ImgUploader = ({ label, id, onChange, src }) => {
       onChange(e);
     }
   };
-  // Show preview from new file or src prop
-  const showPreview = preview || src;
   return (
     <div className="flex flex-col gap-2">
       {label && <label className="text-base font-medium">{label}</label>}
       <label
         htmlFor={id}
-        className="flex flex-col items-center justify-center w-40 h-40 bg-white border border-gray-300 border-dashed rounded-sm cursor-pointer hover:border-blue-500 transition relative overflow-hidden shadow"
+        className="flex flex-col items-center justify-center w-40 h-40 bg-white border border-gray-300 border-dashed rounded-sm cursor-pointer hover:border-blue-500 transition relative overflow-hidden"
       >
-        {showPreview ? (
+        {preview ? (
           <img
-            src={showPreview}
+            src={preview}
             alt="preview"
             className="object-cover w-full h-full rounded-sm"
           />
@@ -52,4 +40,4 @@ const ImgUploader = ({ label, id, onChange, src }) => {
   );
 };
 
-export default ImgUploader;
+export default ImgEdit;

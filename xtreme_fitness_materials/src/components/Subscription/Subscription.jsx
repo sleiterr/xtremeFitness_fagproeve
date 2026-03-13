@@ -16,7 +16,7 @@ const subscriptionText = [
 
 const Subscription = () => {
   return (
-    <Section className="px-4">
+    <Section className="px-4" id="price">
       <SubscriptionItem />
       <SubscriptionCard />
     </Section>

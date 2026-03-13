@@ -12,18 +12,20 @@
 
   --color-primary: #fff;
   --color-secondary: #fff;
-
   --color-dark-primary: #000000;
   --color-dark-secondary: #000000;
-  --color-dark-slider: #777;
-  --color-input-custom: #777;
+
   --color-text-slogan: #E54E41;
   --color-link: #E54E41;
 
+  /*form colors*/
+  --color-dark-slider: #777;
   --color-form-border: rgba(119, 119, 119, 0.95);
   --color-form-btn: rgba(119, 119, 119, 0.95);
   --color-focus-border: #E54E41;
+  --color-input-custom: #777;
 
+  /* btn custom */
   --color-btn-badge: rgba(229, 78, 65, 1);
   --color-btn-border: rgba(235, 235, 235, 0.5);
   --color-button-bg: #fff;
@@ -34,8 +36,8 @@
 
   /* employees-section */
   --color-employees-section: rgba(229, 78, 65, 1);
-  --color-social-icon-circle: #fff;
   --color-employees-icon: #fff;
+  --color-social-icon-circle: #fff;
 
   /* footer-color */
   --color-primary-footer: #fff;
@@ -45,6 +47,7 @@
   --color-footer-copy: #ABABAB;
   --color-social-footer-circle: rgba(119, 119, 119, 0.45);
 
+  /* fonts */
   --font-teko: "Teko", sans-serif;
   --font-ubuntu: "Ubuntu", sans-serif;
 }

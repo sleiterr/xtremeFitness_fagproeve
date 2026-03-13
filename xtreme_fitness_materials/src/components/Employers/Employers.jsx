@@ -16,7 +16,7 @@ const employersText = [
 
 const Employers = () => {
   return (
-    <Section className="" style={{ background: "var(--gradient-price-badge)" }}>
+    <Section id="employers" style={{ background: "var(--gradient-price-badge)" }}>
       <EmployersItem />
       <EmployersCard />
     </Section>

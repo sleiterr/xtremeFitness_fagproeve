@@ -5,23 +5,24 @@ import { toast } from "react-toastify";
 
 import InputField from "./InputField";
 import TextareaField from "./TextareaEditor";
-import ImgEdit from "./ImgEdit";
+import ImgUploader from "./ImgUploader";
 
-// Access API URL from environment variables
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
-// Component for creating a new blog post
-const BlogFormEditor = () => {
+const BlogFormUpdate = ({ blog, onClose }) => {
+  if (!blog)
+    return (
+      <p className="font-medium text-xl text-white">Select a blog to edit</p>
+    );
+
   const initialValues = {
-    title: "",
-    author: "",
-    teaser: "",
-    content: "",
+    title: blog.title || "",
+    author: blog.author || "",
+    teaser: blog.teaser || "",
+    content: blog.content || "",
     image: null,
   };
-  const [formKey, setFormKey] = React.useState(0);
 
-  // Validation schema for the form fields
   const validationSchema = Yup.object({
     title: Yup.string().required("Title is required"),
     author: Yup.string().required("Author is required"),
@@ -30,10 +31,11 @@ const BlogFormEditor = () => {
     // image: Yup.mixed(), // optional
   });
 
-  // Function to handle form submission
   const handleSubmit = async (values, { resetForm }) => {
+    let updateSuccess = false;
     try {
       const formData = new FormData();
+      formData.append("id", blog._id);
       formData.append("title", values.title);
       formData.append("author", values.author);
       formData.append("teaser", values.teaser);
@@ -41,28 +43,41 @@ const BlogFormEditor = () => {
       if (values.image) formData.append("image", values.image);
 
       const res = await fetch(`${API_URL}/blog`, {
-        method: "POST",
+        method: "PUT",
         body: formData,
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("Blog created successfully!");
-        resetForm();
-        setFormKey((k) => k + 1); // форсуємо повний reset
+        toast.success("Blog updated successfully!");
+        updateSuccess = true;
       } else {
-        toast.error(data.message || "Failed to create blog");
+        toast.error(data.message || "Failed to update blog");
       }
     } catch (err) {
       console.error(err);
-      toast.error("Something went wrong");
+      if (!updateSuccess) toast.error("Something went wrong");
+    }
+    if (updateSuccess) {
+      resetForm({
+        values: {
+          title: "",
+          author: "",
+          teaser: "",
+          content: "",
+          image: null,
+        },
+      });
+      // Close form after update
+      if (typeof onClose === "function") {
+        setTimeout(onClose, 100); // slight delay to allow resetForm to finish
+      }
     }
   };
 
   return (
     <Formik
-      key={formKey}
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -70,11 +85,23 @@ const BlogFormEditor = () => {
     >
       {({ values, setFieldValue }) => (
         <Form className="flex flex-col justify-center w-full max-w-2xl mx-auto  rounded shadow px-8 py-6 bg-gray-100">
-          <p className="p-5 text-xl text-gray-900 font-medium">Add blog</p>
+          <p className="p-5 text-xl text-gray-900 font-medium">Edit blog</p>
           <div className="mb-8 self-start">
-            <ImgEdit
-              id="add-image"
-              src={values.image ? URL.createObjectURL(values.image) : ""}
+            <ImgUploader
+              key={
+                values.image
+                  ? values.image.name
+                  : values.title +
+                    values.author +
+                    values.teaser +
+                    values.content
+              }
+              id="edit-image"
+              src={
+                values.image
+                  ? URL.createObjectURL(values.image)
+                  : blog.image || ""
+              }
               onChange={(e) => setFieldValue("image", e.target.files[0])}
             />
           </div>
@@ -108,7 +135,9 @@ const BlogFormEditor = () => {
               rows={6}
             />
           </div>
-          <Button type="submit">Add Blog</Button>
+          <div className="flex flex-row gap-4 mt-4">
+            <Button type="submit">Update Blog</Button>
+          </div>
         </Form>
       )}
     </Formik>
@@ -127,4 +156,4 @@ const Button = ({ children, type = "button", ...rest }) => {
   );
 };
 
-export default BlogFormEditor;
+export default BlogFormUpdate;

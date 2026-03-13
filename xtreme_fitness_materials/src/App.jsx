@@ -15,6 +15,7 @@ import AuthLanding from "./components/AuthLanding/AuthLanding";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Footer from "./components/Footer/Footer";
 import Backoffice from "./pages/Backoffice/Backoffice";
+import BlogFormUpdate from "./pages/Backoffice/BlogFormUpdate";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -63,6 +64,7 @@ function App() {
           />
 
           <Route />
+          <Route path="/blogs/edit/:id" element={<BlogFormUpdate />} />
         </Routes>
       </main>
       {showHeader && <Footer />}

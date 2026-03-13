@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DashboardCard from "./DashboardCard";
 import SummaryTable from "./SummaryTable";
 import SummaryTableHeader from "./SummaryTableHeader";
@@ -17,14 +17,14 @@ function truncateWords(text, maxWords) {
   return words.slice(0, maxWords).join(" ") + "...";
 }
 
-const DashboardView = () => {
+const DashboardView = ({ setEditBlog }) => {
   const { blogs, loading, error } = useBlogs();
   // Local state to manage blogs and deletion status
-  const [deletingId, setDeletingId] = React.useState(null);
+  const [deletingId, setDeletingId] = useState(null);
   // Local state to hold blogs data for immediate UI updates after deletion
-  const [localBlogs, setLocalBlogs] = React.useState([]);
+  const [localBlogs, setLocalBlogs] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setLocalBlogs(blogs);
   }, [blogs]);
 
@@ -76,12 +76,20 @@ const DashboardView = () => {
               {truncateWords(item.content, 18)}
             </SummaryTableCell>
             <SummaryTableCell align="center">
-              <DeleteBtn
-                onClick={() => handleDelete(item._id)}
-                disabled={deletingId === item._id}
-              >
-                {deletingId === item._id ? "Deleting..." : "Delete"}
-              </DeleteBtn>
+              <div className="flex flex-col items-start justify-center gap-2">
+                <DeleteBtn
+                  onClick={() => handleDelete(item._id)}
+                  disabled={deletingId === item._id}
+                >
+                  {deletingId === item._id ? "Deleting..." : "Delete"}
+                </DeleteBtn>
+                <DeleteBtn
+                  onClick={() => setEditBlog(item)}
+                  className="bg-blue-500! hover:bg-blue-600!"
+                >
+                  Rediger
+                </DeleteBtn>
+              </div>
             </SummaryTableCell>
           </tr>
         ))}
@@ -91,3 +99,7 @@ const DashboardView = () => {
 };
 
 export default DashboardView;
+
+//  className="bg-blue-500 text-white px-3 py-1 rounded ml-2 hover:bg-blue-600 transition"
+
+// onClick={() => setEditBlog(item)}

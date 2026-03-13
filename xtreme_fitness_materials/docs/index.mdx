@@ -1,41 +1,87 @@
 ---
-title: Travel Blog — dokumentation
-description: Undervisningsprojekt med React + Vite og Tailwind CSS
+title: Xtreme Fitness — dokumentation
+description: Dokumentation for fitnessklub webplatform (React, Tailwind, API backend)
 ---
 
-Dette er et undervisningsprojekt i formatet travel blog. Formaalet er at vise arbejde med indlaeg, indlaegsdetaljer, filtre, animationer og statistik ved brug af en moderne frontend-stack.
+Dette projekt er en webplatform for en fitnessklub, bygget med React, Tailwind CSS, Formik/Yup og et API backend. Platformen har brugerflade, admin-dashboard og integration med backend til datahåndtering.
 
 ## Indhold
 
-- [Projektoversigt](/project-overview)
-- [Projektstruktur](/project-structure)
-- [Komponenter](/components)
-- [Naeste skridt](/next-steps)
+- Projektoversigt
+- Projektstruktur
+- Komponenter
+- Næste skridt
 
-## Hurtig start
+## Projektstruktur
 
-### Krav
-
-- Node.js + npm
-
-### Koer lokalt
-
-```bash
-npm install
-npm run dev
 ```
-
-### Build
-
-```bash
-npm run build
-npm run preview
+xtreme_fitness_materials/
+  src/
+    components/
+      About/
+      AuthLanding/
+      Button/
+      Contact/
+      Employers/
+      Exercises/
+      Footer/
+      Header/
+      Hero/
+      News/
+      Pagination/
+      ProtectedRoute/
+      Section/
+      Services/
+      Subscription/
+      Testimonials/
+    pages/
+      Backoffice/
+        Backoffice.jsx
+        BlogFetcher.jsx
+        BlogFormEditor.jsx
+        BlogFormUpdate.jsx
+        ...
+      Home/
+        Home.jsx
+    utils/
+      api.js
+    assets/
+  public/
+    ...
+  docs/
+    index.mdx
+    ...
 ```
 
 ## Stack
 
 - React + Vite
 - Tailwind CSS
+- Formik/Yup
 - React Router
-- GSAP, Framer Motion
-- Radix UI, Sonner
+- Node.js/Express API backend
+
+## Vigtige ændringer
+
+**Ændring af telefonfelt i beskedmodellen**
+
+I filen `lib/db/models/message.model.mjs` blev feltet `phone` ændret fra `Number` til `String`:
+
+Før:
+
+```javascript
+phone: { type: Number },
+```
+
+Efter:
+
+```javascript
+// Changed from Number to String to support phone numbers with +, spaces, and different formats from frontend forms
+phone: { type: String },
+```
+
+Denne ændring blev lavet, fordi kontaktformularen (`ContactForm.jsx`) ikke kunne sende telefonnummeret til API'et, hvis det indeholdt tegn som +, mellemrum eller andre formater. Nu understøttes alle gængse telefonnumre fra frontend.
+
+---
+
+Dokumentationen er tilpasset Xtreme Fitness-projektet og skrevet på dansk. Kontakt for flere sektioner eller detaljer!

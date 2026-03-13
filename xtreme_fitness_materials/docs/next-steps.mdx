@@ -1,6 +1,6 @@
 ---
-title: Naeste skridt
-description: Hvad du goer efter start
+title: Næste skridt
+description: Hvad du gør efter start
 ---
 
 ## Projektkommandoer
@@ -12,38 +12,26 @@ npm run preview  # lokal visning af build
 npm run lint     # eslint check
 ```
 
-## Saadan tilfoejer du indhold
+## Sådan tester du funktionalitet
 
-1. Opdater JSON i `public/data/latestData.json`.
-2. Tilfoej billeder i `public/ImagePost/Latest/`.
-3. Tjek visning paa forsiden og i indlaegsdetaljer.
-
-## Navigation og sider
-
-- Forside: `src/pages/Home/Home.jsx`.
-- Indlaegsdetaljer: `src/pages/PostDetail/PostDetail.jsx`.
-- Primaere UI-blokke: `src/components/`.
+1. Tjek kontaktformularen (src/components/Contact/ContactForm.jsx).
+2. Prøv CRUD for blogs i adminpanelet (src/pages/Backoffice/).
+3. Tjek visning af træningsøvelser, services, anmeldelser.
 
 ## Kvalitetstjek
 
-- Koer `npm run lint` foer aflevering.
-- Tjek match med Figma (link i README).
-- Test responsivt paa mobil og desktop.
+- Kør `npm run lint` før aflevering.
+- Test responsivt på mobil og desktop.
+- Tjek API-integration i src/utils/api.js.
 
 ## Publicering af dokumentation
 
 1. Opdater indhold i `docs/`.
 2. Tjek via https://docs.page/preview.
-3. Push aendringer til repoet.
+3. Push ændringer til repoet.
 
-## Hvis funktionalitet skal udvides
+## Udvidelse af funktionalitet
 
-- Tilfoej nye kategorier: opdater data i JSON og filtre i komponenter.
-- Udvid statistik: `src/utils/statistics.js`.
-- Tilfoej animationer: `src/components/animation/`.
-
-## Relaterede sider
-
-- [Projektoversigt](/project-overview)
-- [Projektstruktur](/project-structure)
-- [Komponenter](/components)
+- Tilføj nye komponenter i src/components/
+- Udvid API-endpoints i backend
+- Tilpas adminpanelet for flere datatyper

@@ -1,29 +1,29 @@
 ---
 title: Projektoversigt
-description: Forma l, funktioner og brugerflow
+description: Formål, funktioner og brugerflow
 ---
 
-## Forma l
+## Formål
 
-Projektet er et undervisningsforloeb, der viser hvordan man bygger en travel blog med moderne frontend-vaerktoejer. Fokus er paa data-visning, filtrering, animationer og god struktur i komponenter.
+Projektet er en webplatform for en fitnessklub, der viser hvordan man bygger en moderne SPA med React, Tailwind og API backend. Fokus er på datahåndtering, brugeroplevelse og adminfunktioner.
 
 ## Hovedfunktioner
 
-- Liste over seneste indlaeg paa forsiden.
-- Filtrering af indlaeg efter kategori.
-- Detaljeside med galleri og udvidet tekst.
-- Sm aa statistikker i footer.
-- UI-effekter og animationer.
+- Forside med klubinfo, øvelser, services, anmeldelser
+- Kontaktformular med validering
+- Adminpanel med CRUD for blogs
+- Statistik og testimonials
+- Responsivt layout
 
 ## Brugerflow
 
-1. Bruger lander paa forsiden og ser seneste indlaeg.
-2. Bruger filtrerer efter kategori for at finde relevante indlaeg.
-3. Bruger aabner et indlaeg og ser detaljer.
-4. Bruger orienterer sig via statistik og relateret indhold.
+1. Bruger lander på forsiden (Home)
+2. Bruger ser klubinfo, øvelser, services
+3. Bruger kan sende besked via kontaktformular
+4. Admin logger ind og styrer blogs i Backoffice
 
-## Dataflow i kort form
+## Dataflow
 
-- JSON-data i `public/data/latestData.json` bruges til at bygge lister.
-- Billeder hentes fra `public/ImagePost/Latest/`.
-- Hj aelpefunktioner i `src/utils/` beregner statistik og haandterer data.
+- API-kald via src/utils/api.js
+- Backend håndterer data og validering
+- Frontend viser data i komponenter

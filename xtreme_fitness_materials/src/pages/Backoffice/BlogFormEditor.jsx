@@ -12,6 +12,7 @@ const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Component for creating a new blog post
 const BlogFormEditor = () => {
+  // current form values and a key to force re-mounting the form for resetting after submission
   const initialValues = {
     title: "",
     author: "",
@@ -19,6 +20,7 @@ const BlogFormEditor = () => {
     content: "",
     image: null,
   };
+  // State to force re-mounting the form to reset file input after submission
   const [formKey, setFormKey] = React.useState(0);
 
   // Validation schema for the form fields
@@ -30,27 +32,30 @@ const BlogFormEditor = () => {
     // image: Yup.mixed(), // optional
   });
 
-  // Function to handle form submission
+  // Function to handle form submission call formik's
   const handleSubmit = async (values, { resetForm }) => {
+    // use try from async/await syntax for cleaner code and error handling when submitting the form data to the API
     try {
+      // new FormData object to hold the form data, append each field to the FormData object, including the image file if it exists, using the append method which takes the field name and value as arguments
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("author", values.author);
       formData.append("teaser", values.teaser);
       formData.append("content", values.content);
+      // if an image file is selected, append it to the FormData object with the key "image"
       if (values.image) formData.append("image", values.image);
-
+      // Send POST request to API to create a new blog post with the form data, await the response and parse it as JSON
       const res = await fetch(`${API_URL}/blog`, {
         method: "POST",
         body: formData,
       });
-
+      // response data from the API after attempting to create a new blog post.
       const data = await res.json();
 
       if (res.ok) {
         toast.success("Blog created successfully!");
         resetForm();
-        setFormKey((k) => k + 1); // форсуємо повний reset
+        setFormKey((k) => k + 1); // Force re-mount to reset file input
       } else {
         toast.error(data.message || "Failed to create blog");
       }
@@ -72,6 +77,7 @@ const BlogFormEditor = () => {
         <Form className="flex flex-col justify-center w-full max-w-2xl mx-auto  rounded shadow px-8 py-6 bg-gray-100">
           <p className="p-5 text-xl text-gray-900 font-medium">Add blog</p>
           <div className="mb-8 self-start">
+            {/* use createObjectURL for previewing the selected image before uploading */}
             <ImgEdit
               id="add-image"
               src={values.image ? URL.createObjectURL(values.image) : ""}

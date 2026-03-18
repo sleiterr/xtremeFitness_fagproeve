@@ -4,15 +4,18 @@ import SummaryTable from "./SummaryTable";
 import SummaryTableHeader from "./SummaryTableHeader";
 import SummaryTableCell from "./SummaryTableCell";
 import DeleteBtn from "./DeleteBtn";
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
+
 import { useBlogs } from "./BlogFetcher";
 import { deleteBlog } from "../../utils/api";
 
-// Helper function to truncate text to a specified number of words
+//! Helper function to truncate text to a specified number of words
 function truncateWords(text, maxWords) {
   // Return an empty string if the input text is falsy (e.g., null, undefined, or empty)
   if (!text) return "";
+  //* use the split method to break the text into an array of words based on spacess
   const words = text.split(" ");
-  // If the number of words is less than or equal to the maximum allowed, return the original text
+  // If the number of words is less than or equal to the maximum allowed, return the original text, method join retunn the truncated text by slicing the array to the maxWords length and joining it back into a string with spaces, adding "..." at the end to indicate truncation
   if (words.length <= maxWords) return text;
   return words.slice(0, maxWords).join(" ") + "...";
 }
@@ -23,19 +26,20 @@ const DashboardView = ({ setEditBlog }) => {
   const [deletingId, setDeletingId] = useState(null);
   // Local state to hold blogs data for immediate UI updates after deletion
   const [localBlogs, setLocalBlogs] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
+  // When change in blogs data, update localBlogs state to reflect the latest data for rendering in the table
   useEffect(() => {
     setLocalBlogs(blogs);
   }, [blogs]);
 
   // Function to handle blog deletion
   const handleDelete = async (id) => {
-    // Set the ID of the blog being deleted to show loading state on the delete button
-    setDeletingId(id);
+    // Delete blog from API and update localBlogs state to remove the deleted blog from the table without needing to refetch all blogs
     await deleteBlog(id);
+    // Arrow function to filter out the deleted blog from the localBlogs state by comparing each blog's ID with the deleted ID and returning a new array
     setLocalBlogs((prev) => prev.filter((blog) => blog._id !== id));
-    // Reset the deleting ID after deletion is complete
-    setDeletingId(null);
+    setLocalBlogs((prev) => prev.filter((blog) => blog._id !== id));
   };
 
   if (loading)
@@ -78,7 +82,10 @@ const DashboardView = ({ setEditBlog }) => {
             <SummaryTableCell align="center">
               <div className="flex flex-col items-start justify-center gap-2">
                 <DeleteBtn
-                  onClick={() => handleDelete(item._id)}
+                  onClick={() => {
+                    setDeletingId(item._id);
+                    setShowModal(true);
+                  }}
                   disabled={deletingId === item._id}
                 >
                   {deletingId === item._id ? "Deleting..." : "Delete"}
@@ -94,12 +101,25 @@ const DashboardView = ({ setEditBlog }) => {
           </tr>
         ))}
       </SummaryTable>
+      {showModal && (
+        <ConfirmDeleteModal
+          onConfirm={() => {
+            handleDelete(deletingId);
+            setShowModal(false);
+            setDeletingId(null);
+          }}
+          onClose={() => {
+            setShowModal(false);
+            setDeletingId(null);
+          }}
+        />
+      )}
     </DashboardCard>
   );
 };
 
 export default DashboardView;
 
-//  className="bg-blue-500 text-white px-3 py-1 rounded ml-2 hover:bg-blue-600 transition"
-
-// onClick={() => setEditBlog(item)}
+// <th> - table header
+// <td> - table data cell
+// <tr> - table row, used to group header and data cells together in a row, each row can contain multiple header and data cells, and the table is structured with rows containing cells to create a grid-like layout for displaying tabular data.

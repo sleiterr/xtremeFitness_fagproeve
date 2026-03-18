@@ -13,6 +13,7 @@ const ImgEdit = ({ label, id, onChange, src }) => {
   return (
     <div className="flex flex-col gap-2">
       {label && <label className="text-base font-medium">{label}</label>}
+      {/* htmlFor attribute links the label to the input element by ID */}
       <label
         htmlFor={id}
         className="flex flex-col items-center justify-center w-40 h-40 bg-white border border-gray-300 border-dashed rounded-sm cursor-pointer hover:border-blue-500 transition relative overflow-hidden"

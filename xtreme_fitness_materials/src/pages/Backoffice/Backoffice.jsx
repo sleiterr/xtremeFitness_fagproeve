@@ -6,6 +6,7 @@ import BlogFormUpdate from "./BlogFormUpdate";
 import DashboardView from "./DashboardView";
 
 const Backoffice = ({ token, onLogout }) => {
+  // State to hold the currently selected blog for editing
   const [editBlog, setEditBlog] = useState(null);
 
   // Handler to close edit form and clear state

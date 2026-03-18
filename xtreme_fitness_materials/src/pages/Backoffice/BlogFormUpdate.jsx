@@ -15,6 +15,7 @@ const BlogFormUpdate = ({ blog, onClose }) => {
       <p className="font-medium text-xl text-white">Select a blog to edit</p>
     );
 
+  // values for the form fields, using the existing blog data to pre-populate the form when editing an existing blog post.
   const initialValues = {
     title: blog.title || "",
     author: blog.author || "",
@@ -137,6 +138,17 @@ const BlogFormUpdate = ({ blog, onClose }) => {
           </div>
           <div className="flex flex-row gap-4 mt-4">
             <Button type="submit">Update Blog</Button>
+          </div>
+          <div className="flex flex-row gap-4 mt-4">
+            <Button
+              type="button"
+              onClick={() => {
+                onClose();
+                resetForm();
+              }}
+            >
+              Anuller
+            </Button>
           </div>
         </Form>
       )}

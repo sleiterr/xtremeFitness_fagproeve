@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
+// Custom hook to manage token in local storage
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useNavigate } from "react-router-dom";
 import ContactConfirmation from "../src/components/Contact/ContactConfirmation ";
@@ -24,9 +25,10 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   // useLocalStorage is a custom hook that manages the token in local storage
   const [token, setToken] = useLocalStorage("token", null);
-  // location is used to determine if the header should be shown on certain routes
+  // location react hook to get the current path and determine if the header should be shown
   const location = useLocation();
   const navigate = useNavigate();
+  // Define routes where the header should be hidden
   const hideHeaderRoutes = ["/contact-confirmation", "/backoffice"];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
@@ -37,7 +39,7 @@ function App() {
   const handleLogout = () => {
     setToken(null);
     localStorage.removeItem("token");
-    localStorage.removeItem("favorites");
+    // localStorage.removeItem("favorites");
     navigate("/");
   };
 

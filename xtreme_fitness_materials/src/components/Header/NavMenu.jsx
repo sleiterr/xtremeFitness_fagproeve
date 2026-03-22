@@ -1,8 +1,11 @@
 import React from "react";
+import { jwtDecode } from "jwt-decode";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 
-const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
+const NavMenu = ({ handleLinkClick, isLoggedIn, token }) => {
+  const role = token ? jwtDecode(token).role : null;
+
   return (
     <div>
       <ul className="flex flex-col items-end gap-6">
@@ -69,7 +72,7 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
             Trænere
           </a>
         </li>
-        {isLoggedIn ? (
+        {isLoggedIn && role === "admin" && (
           <>
             <li>
               <Link
@@ -83,14 +86,37 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
                   "hover:font-bold transition-all duration-300",
                 )}
                 onClick={() => {
-                  handleLinkClick;
+                  handleLinkClick();
                 }}
               >
                 Dashboard
               </Link>
             </li>
           </>
-        ) : (
+        )}
+        {isLoggedIn && role === "member" && (
+          <>
+            <li>
+              <Link
+                to="/my-page"
+                smooth={true.toString()}
+                duration={800}
+                offset={-100}
+                className={clsx(
+                  "relative cursor-pointer ",
+                  "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
+                  "hover:font-bold transition-all duration-300",
+                )}
+                onClick={() => {
+                  handleLinkClick();
+                }}
+              >
+                My Page
+              </Link>
+            </li>
+          </>
+        )}
+        {!isLoggedIn && (
           <li>
             <Link
               to="/auth-landing"
@@ -105,6 +131,25 @@ const NavMenu = ({ handleLinkClick, isLoggedIn, onLogout }) => {
               onClick={handleLinkClick}
             >
               Login
+            </Link>
+          </li>
+        )}
+
+        {isLoggedIn && (
+          <li>
+            <Link
+              to="/auth-landing"
+              smooth={true.toString()}
+              duration={800}
+              offset={-100}
+              className={clsx(
+                "relative cursor-pointer ",
+                "font-zen font-light text-secondary text-2xl md:text-4xl tracking-wide",
+                "hover:font-bold transition-all duration-300",
+              )}
+              onClick={handleLinkClick}
+            >
+              Log out
             </Link>
           </li>
         )}

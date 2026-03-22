@@ -56,6 +56,19 @@ export const updateBlog = async (blogData) => {
   return await response.json();
 };
 
+// Fetch all workouts for a specific user
+export const fetchUserWorkouts = async (userId, token) => {
+  const response = await fetch(`${API_URL}/user/${userId}/workouts`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+  });
+  if (!response.ok) throw new Error("Error fetching user workouts");
+  return await response.json();
+};
+
+//* Function to update a subscription with new data
+
+
+
 //? Function to create a new blog
 export const createBlog = async (blogData) => {
   //! response from the API after making a POST request to the /blog endpoint with the new blog data in the request body

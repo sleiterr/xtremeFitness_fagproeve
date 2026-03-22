@@ -244,3 +244,19 @@ Projektlink: [https://github.com/sleiterr/xtremeFitness_fagproeve](https://githu
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
+
+## Test Login (Demo-brugere)
+
+Til testformål kan du bruge følgende demo-brugere:
+
+**Admin (Backoffice-adgang, kan redigere blogs og administrere indhold):**
+- Navn: admin
+- Email: admin@mediacollege.dk
+- Rolle: admin
+
+**Member (MyPage-adgang, almindelig bruger):**
+- Navn: member
+- Email: member@mediacollege.dk
+- Rolle: member
+
+> Disse konti er kun til undervisnings-/demobruk.

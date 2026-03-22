@@ -1,4 +1,5 @@
 import React from "react";
+import HeroSection from "../Section/HeroSection";
 import loginBg from "../../assets/loginHeader/loginHeader.png";
 
 // button mt-5
@@ -13,20 +14,12 @@ const loginText = [
 
 const LoginHero = () => {
   return (
-    <section
-      className="relative min-h-[45vh] w-full min-w-[320px] md:h-screen lg:h-auto bg-cover bg-no-repeat bg-center md:aspect-8/5"
-      id="login-hero"
-      style={{
-        backgroundImage: `url(${loginBg})`,
-        backgroundPosition: "center center",
-        // aspectRatio: "8 / 5",
-      }}
-    >
+    <HeroSection bgSrc={loginBg}>
       <div className="absolute inset-0 bg-hero-overlay"></div>
       <div className="absolute inset-0 flex items-center justify-center">
         <LoginItem />
       </div>
-    </section>
+    </HeroSection>
   );
 };
 

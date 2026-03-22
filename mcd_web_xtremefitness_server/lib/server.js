@@ -32,6 +32,7 @@ import workoutRouter from "./routes/workouts/workout.route.js";
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const expressServer = express();
 
+// middleware
 expressServer.use(bodyParser.json());
 expressServer.use(bodyParser.urlencoded({ extended: true }));
 expressServer.use(cors());
@@ -51,7 +52,7 @@ expressServer.use(express.static("sites"));
 // Index Client Frontend Routes
 expressServer.use(indexRouter);
 
-// Backend API Routes
+// Backend API Routes for Authentication
 expressServer.use(authRouter);
 expressServer.use(authTokenRouter);
 

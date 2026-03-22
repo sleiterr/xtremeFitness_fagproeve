@@ -35,7 +35,16 @@ const expressServer = express();
 // middleware
 expressServer.use(bodyParser.json());
 expressServer.use(bodyParser.urlencoded({ extended: true }));
-expressServer.use(cors());
+expressServer.use(
+  cors({
+    origin: [
+      "https://xtreme-fitness-fagproeve-git-main-sleiterrs-projects.vercel.app",
+      "https://xtreme-fitness-fagproeve.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  }),
+);
 expressServer.use(cookieParser());
 
 // Serve static files from the public and www directories.

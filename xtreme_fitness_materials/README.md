@@ -250,13 +250,15 @@ Projektlink: [https://github.com/sleiterr/xtremeFitness_fagproeve](https://githu
 Til testformål kan du bruge følgende demo-brugere:
 
 **Admin (Backoffice-adgang, kan redigere blogs og administrere indhold):**
+
 - Navn: admin
 - Email: admin@mediacollege.dk
 - Rolle: admin
 
-**Member (MyPage-adgang, almindelig bruger):**
-- Navn: member
-- Email: member@mediacollege.dk
-- Rolle: member
+**Guest (MyPage-adgang, almindelig bruger):**
+
+- Navn: guest
+- Email: guest@mediacollege.dk
+- Rolle: guest
 
 > Disse konti er kun til undervisnings-/demobruk.

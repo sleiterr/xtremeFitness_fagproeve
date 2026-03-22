@@ -17,6 +17,7 @@ import AuthLanding from "./components/AuthLanding/AuthLanding";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Footer from "./components/Footer/Footer";
 import Backoffice from "./pages/Backoffice/Backoffice";
+import MyPage from "./pages/MyPage/MyPage";
 import BlogFormUpdate from "./pages/Backoffice/BlogFormUpdate";
 
 import { ToastContainer } from "react-toastify";
@@ -34,6 +35,7 @@ function App() {
 
   const handleLogin = (newToken) => {
     setToken(newToken);
+    navigate("/my-page");
   };
 
   const handleLogout = () => {
@@ -62,6 +64,16 @@ function App() {
             element={
               <ProtectedRoute allowedRoles={["admin"]}>
                 <Backoffice token={token} onLogout={handleLogout} />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route />
+          <Route
+            path="/my-page"
+            element={
+              <ProtectedRoute allowedRoles={["member", "admin"]}>
+                <MyPage token={token} onLogout={handleLogout} />
               </ProtectedRoute>
             }
           />

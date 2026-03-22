@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import Button from "../Button/PrimaryButton";
 import CtaLabel from "../Button/CtaLabel";
 import heroBg from "../../assets/Header/mainHeader.jpg";

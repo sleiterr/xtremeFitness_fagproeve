@@ -9,7 +9,8 @@ const NewsEvent = () => {
 
   // Define the target ID for the specific event we want to display
   const targetId = "69aea7781108ea7a04055457";
-  const uniqueEvent = blogs.find((item) => item._id === targetId);
+  // Якщо не знайдено потрібний id — показати перший блог
+  const uniqueEvent = blogs.find((item) => item._id === targetId) || blogs[0];
 
   if (loading)
     return (

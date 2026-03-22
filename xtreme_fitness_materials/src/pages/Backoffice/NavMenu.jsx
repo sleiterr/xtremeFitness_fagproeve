@@ -35,6 +35,17 @@ const ProjectNav = ({ token, onLogout }) => {
             </Link>
           </li>
           <li className="relative">
+            <Link
+              className={clsx(
+                "flex items-center font-light tracking-wider text-content text-2xl md:text-xl gap-2",
+                "before:content-[''] before:absolute before:w-0 before:h-0.5 before:rounded-xs before:bg-white before:bottom-[-.25rem] before:left-0 before:transition-all before:duration-300 hover:before:w-full",
+              )}
+              to="/my-page"
+            >
+              Member <BiHomeAlt2 />
+            </Link>
+          </li>
+          <li className="relative">
             <button
               onClick={handleLogout}
               className={clsx(

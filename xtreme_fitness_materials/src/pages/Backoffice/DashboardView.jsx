@@ -39,7 +39,6 @@ const DashboardView = ({ setEditBlog }) => {
     await deleteBlog(id);
     // Arrow function to filter out the deleted blog from the localBlogs state by comparing each blog's ID with the deleted ID and returning a new array
     setLocalBlogs((prev) => prev.filter((blog) => blog._id !== id));
-    setLocalBlogs((prev) => prev.filter((blog) => blog._id !== id));
   };
 
   if (loading)
@@ -108,7 +107,7 @@ const DashboardView = ({ setEditBlog }) => {
             setShowModal(false);
             setDeletingId(null);
           }}
-          onClose={() => {
+          onCancel={() => {
             setShowModal(false);
             setDeletingId(null);
           }}

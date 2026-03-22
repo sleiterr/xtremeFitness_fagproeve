@@ -103,6 +103,7 @@ const Header = ({ token, onLogout }) => {
               handleLinkClick={handleLinkClick}
               isLoggedIn={isLoggedIn}
               onLogout={onLogout}
+              token={token}
             />
           </nav>
         </div>
